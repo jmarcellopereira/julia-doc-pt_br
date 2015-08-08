@@ -1,7 +1,7 @@
 .. _man-mathematical-operations:
 
 *************************
- Mathematical Operations  
+ Operadores Matemáticos
 *************************
 
 Julia provides a complete collection of basic arithmetic and bitwise
