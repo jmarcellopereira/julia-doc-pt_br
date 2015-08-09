@@ -3,41 +3,33 @@
 *************************
  Operadores Matemáticos
 *************************
+Julia fornece uma coleção completa de aritmética básica e operadores binários em todos os seus tipos primitivos numéricos, bem como fornecendo portabilidade, eficientes implementações e uma ampla coleção de funções matemáticas padrão.
 
-Julia provides a complete collection of basic arithmetic and bitwise
-operators across all of its numeric primitive types, as well as
-providing portable, efficient implementations of a comprehensive
-collection of standard mathematical functions.
-
-Arithmetic and Bitwise Operators
+Aritimétia e Operadores Lógicos Binários
 --------------------------------
 
-The following `arithmetic
-operators <http://en.wikipedia.org/wiki/Arithmetic#Arithmetic_operations>`_
-are supported on all primitive numeric types:
+Os seguintes operadores matemáticos <https://pt.wikipedia.org/wiki/Aritm%C3%A9tica>`_
+são suportados para todos os tipos numéricos primitivos abaixo:
 
--  ``+x`` — unary plus is the identity operation.
--  ``-x`` — unary minus maps values to their additive inverses.
--  ``x + y`` — binary plus performs addition.
--  ``x - y`` — binary minus performs subtraction.
--  ``x * y`` — times performs multiplication.
--  ``x / y`` — divide performs division.
+-  ``+x`` — "mais" unária é a operação de identidade.
+-  ``-x`` — Mapas unários de valores negativos aos seus inversos aditivos.
+-  ``x + y`` — binário "mais" realiza adição.
+-  ``x - y`` — binário "menos" realiza subtração.
+-  ``x * y`` — "vezes" executa multiplicação.
+-  ``x / y`` — "dividir" executa divisão.
 
-The following `bitwise
-operators <http://en.wikipedia.org/wiki/Bitwise_operation#Bitwise_operators>`_
-are supported on all primitive integer types:
+Os seguintes operadores lógicos binários <https://pt.wikipedia.org/wiki/L%C3%B3gica_bin%C3%A1ria>`_
+são suportados para todos os tipos numéricos primitivos inteiros (https://pt.wikipedia.org/wiki/N%C3%BAmero_inteiro) abaixo:
 
--  ``~x`` — bitwise not.
--  ``x & y`` — bitwise and.
--  ``x | y`` — bitwise or.
--  ``x $ y`` — bitwise xor.
--  ``x >>> y`` — `logical
-   shift <http://en.wikipedia.org/wiki/Logical_shift>`_ right.
--  ``x >> y`` — `arithmetic
-   shift <http://en.wikipedia.org/wiki/Arithmetic_shift>`_ right.
--  ``x << y`` — logical/arithmetic shift left.
+-  ``~x``    — Binário lógico "não".
+-  ``x & y`` — Binário "e".
+-  ``x | y`` — binário "ou.
+-  ``x $ y`` — binário "ou exclusivo" ou "xor".
+-  ``x >>> y`` — Deslocamento lógico <http://en.wikipedia.org/wiki/Logical_shift>`_ right.
+-  ``x >> y`` — `Deslocamento aritimético <https://pt.wikipedia.org/wiki/Deslocamento_aritm%C3%A9tico>`_ para a direita.
+-  ``x << y`` — logico/aritmético deslocamento para a esquerda.
 
-Here are some simple examples using arithmetic operators::
+Aqui estão alguns exemplos simples usando operadores aritméticos:
 
     julia> 1 + 2 + 3
     6
@@ -48,16 +40,14 @@ Here are some simple examples using arithmetic operators::
     julia> 3*2/12
     0.5
 
-(By convention, we tend to space less tightly binding operators less
-tightly, but there are no syntactic constraints.)
+(Por convenção, temos a tendência de menos espaço para os operadores encadeados bem menos vinculados, mas não há restrições sintáticas.)
 
-Julia's promotion system makes arithmetic operations on mixtures of
-argument types "just work" naturally and automatically. See :ref:`man-conversion-and-promotion` for details of the
-promotion system.
+Julia possui um sistema de desenvolvimento que faz operações aritméticas com misturas de tipos de argumentos "apenas funcione" naturalmente e automaticamente. Ver :ref: `man-conversion-and-promotion` para obter mais detalhes do sistema de desenvolvimento
 
-Here are some examples with bitwise operators::
+Aqui estão alguns exemplos simples usando operadores lógicos:
+obs: os numeros estão em decimais mas Julia trabalha com esses números na forma binaria, ou seja, 123 = 1111011 em binário
 
-    julia> ~123
+    julia> ~123 
     -124
 
     julia> 123 & 234
@@ -75,10 +65,8 @@ Here are some examples with bitwise operators::
     julia> ~uint8(123)
     0x84
 
-Every binary arithmetic and bitwise operator also has an updating
-version that assigns the result of the operation back into its left
-operand. For example, the updating form of ``+`` is the ``+=`` operator.
-Writing ``x += 3`` is equivalent to writing ``x = x + 3``::
+
+Toda aritmética binária e operadores lógicos também tem uma versão de atualização que atribui o resultado da operação de volta para seu operando esquerdo. Por exemplo, a forma de atualização de " + " é o operador "+ =" . Escrever  "x + = 3" é equivalente à escrita "x = x + 3" ::
 
       julia> x = 1
       1
@@ -89,28 +77,27 @@ Writing ``x += 3`` is equivalent to writing ``x = x + 3``::
       julia> x
       4
 
-The updating versions of all the binary arithmetic and bitwise operators
-are::
+As versões de atualização de todos os operadores aritméticos e de lógica binária são estas::
 
     +=  -=  *=  /=  &=  |=  $=  >>>=  >>=  <<=
 
 
 .. _man-numeric-comparisons:
 
-Numeric Comparisons
+Comparações Numéricas
 -------------------
 
-Standard comparison operations are defined for all the primitive numeric
-types:
+As Operações de comparação padrão são definidas para todos os tipos primitivos numéricos:
 
--  ``==`` — equality.
--  ``!=`` — inequality.
--  ``<`` — less than.
--  ``<=`` — less than or equal to.
--  ``>`` — greater than.
--  ``>=`` — greater than or equal to.
+-  ``==`` — igualdade.
+-  ``!=`` — desigualdade.
+-  ``<`` — menor que.
+-  ``<=`` — menor ou igual que.
+-  ``>``  — maior que.
+-  ``>=`` — maior ou igual que.
 
-Here are some simple examples::
+Aqui estão alguns exemplos simples:: 
+obs: true é verdadeiro e false é falso
 
     julia> 1 == 1
     true
@@ -145,19 +132,19 @@ Here are some simple examples::
     julia> 3 < -0.5
     false
 
-Integers are compared in the standard manner — by comparison of bits.
-Floating-point numbers are compared according to the `IEEE 754
-standard <http://en.wikipedia.org/wiki/IEEE_754-2008>`_:
+Números Inteiros (-25,-1,2,0,35..1250,..) são comparados no modo convencional - por comparação de bits. Números de ponto flutuante são comparados de acordo com o `padrão IEEE 754 <https://pt.wikipedia.org/wiki/IEEE_754> `_:
+ 
+- Números finitos são ordenados da maneira usual
 
--  finite numbers are ordered in the usual manner
--  ``Inf`` is equal to itself and greater than everything else except
-   ``NaN``
--  ``-Inf`` is equal to itself and less then everything else except
-   ``NaN``
--  ``NaN`` is not equal to, less than, or greater than anything,
-   including itself.
+-  ``Inf`` (Infinito positivo) é igual a si mesmo e maior do que tudo o resto, exceto
+   ``NaN``(não é número)
+   
+-  ``-Inf``(Infinito negativo) É igual a si próprio e menos então tudo o resto exceto
+   ``NaN`` (não é número)
+   
+-  ``NaN`` não é igual, menor ou maior do que tudo, incluindo o próprio.
 
-The last point is potentially suprprising and thus worth noting::
+O último ponto é potencialmente surpreendente e, portanto, merece nota::
 
     julia> NaN == NaN
     false
@@ -171,32 +158,22 @@ The last point is potentially suprprising and thus worth noting::
     julia> NaN > NaN
     false
 
-For situations where one wants to compare floating-point values so that
-``NaN`` equals ``NaN``, such as hash key comparisons, the function
-``isequal`` is also provided, which considers ``NaN``\ s to be equal to
-each other::
+Para as situações em que se pretende comparar os valores de ponto flutuante para que "NaN" é igual a "NaN", como, por exemplo, as comparações de chave hash, a função "equivale" também é fornecido, o qual considera "NaN" s para ser igual a todos os outros::
 
     julia> isequal(NaN,NaN)
     true
 
-Mixed-type comparisons between signed integers, unsigned integers, and
-floats can be very tricky. A great deal of care has been taken to ensure
-that Julia does them correctly.
+Comparações do tipo mista entre inteiros definidos, inteiros sem sinal, e flutuantes(decimais) pode ser muito complicado. Foram tomadas grande cuidado para assegurar que Julia faça-os corretamente.
 
-Unlike most languages, with the `notable exception of
-Python <http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Comparison_operators>`_,
-comparisons can be arbitrarily chained::
+
+Diferentemente da maioria das outras linguagens, com a notável exceção do Python <http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Comparison_operators> `_, comparações podem ser arbitrariamente encadeadas ::
 
     julia> 1 < 2 <= 2 < 3 == 3 > 2 >= 1 == 1 < 3 != 5
     true
 
-Chaining comparisons is often quite convenient in numerical code.
-Chained numeric comparisons use the ``&`` operator, which allows them to
-work on arrays. For example, ``0 < A < 1`` gives a boolean array whose
-entries are true where the corresponding elements of ``A`` are between 0
-and 1.
+O encadeamento de comparações muitas vezes é bastante conveniente em código numérico. As comparações numéricas em cadeia com o operador " &" , permite nos trabalhar com arrays. Por exemplo, "0 < A < 1" apresenta uma matriz booleana cujas entradas são verdadeiras onde os elementos correspondentes da "A" são entre 0 e 1.
 
-Note the evaluation behavior of chained comparisons::
+Observe o comportamento de avaliação de comparações encadeadas ::
 
     v(x) = (println(x); x)
 
@@ -206,70 +183,85 @@ Note the evaluation behavior of chained comparisons::
     3
     false
 
-The middle expression is only evaluated once, rather than twice as it
-would be if the expression were written as
-``v(1) > v(2) & v(2) <= v(3)``. However, the order of evaluations in a
-chained comparison is undefined. It is strongly recommended not to use
-expressions with side effects (such as printing) in chained comparisons.
-If side effects are required, the short-circuit ``&&`` operator should
-be used explicitly (see :ref:`man-short-circuit-evaluation`).
+O meio termo é avaliada somente uma vez, em vez de duas vezes como seria se a expressão fosse escrita como "v(1) > v(2) & v(2) <= v(3) ". No entanto, o fim das avaliações em uma comparação de encadeamento é indefinido. É altamente recomendável não utilizar expressões com efeitos posteriores (como imprimir) encadeados em comparações. Se os efeitos posteriores são necessárias, o operador " &&"  deve ser utilizado explicitamente (veja :ref:`man-short-circuit-evaluation`).
 
-Mathematical Functions
+Funções Matemáticas
 ----------------------
 
-Julia provides a comprehensive collection of mathematical functions and
-operators. These mathematical operations are defined over as broad a
-class of numerical values as permit sensible definitions, including
-integers, floating-point numbers, rationals, and complexes, wherever
-such definitions make sense.
+Julia oferece uma coleção abrangente de funções e operadores matemáticos.Estas operações matemáticas são definidos ao longo de uma ampla classe de valores numéricos como permitir definições bem estruturadas, incluindo inteiros, números de ponto flutuante, racionais, e complexos, onde quer que essas definições fazem sentido.
 
--  ``round(x)`` — round ``x`` to the nearest integer.
--  ``iround(x)`` — round ``x`` to the nearest integer, giving an
-   integer-typed result.
--  ``floor(x)`` — round ``x`` towards ``-Inf``.
--  ``ifloor(x)`` — round ``x`` towards ``-Inf``, giving an integer-typed result.
--  ``ceil(x)`` — round ``x`` towards ``+Inf``.
--  ``iceil(x)`` — round ``x`` towards ``+Inf``, giving an integer-typed result. 
--  ``trunc(x)`` — round ``x`` towards zero.
--  ``itrunc(x)`` — round ``x`` towards zero, giving an integer-typed
-   result.
--  ``div(x,y)`` — truncated division; quotient rounded towards zero.
--  ``fld(x,y)`` — floored division; quotient rounded towards ``-Inf``.
--  ``rem(x,y)`` — remainder; satisfies ``x == div(x,y)*y + rem(x,y)``,
-   implying that sign matches ``x``.
--  ``mod(x,y)`` — modulus; satisfies ``x == fld(x,y)*y + mod(x,y)``,
-   implying that sign matches ``y``.
--  ``gcd(x,y...)`` — greatest common divisor of ``x``, ``y``... with
-   sign matching ``x``.
--  ``lcm(x,y...)`` — least common multiple of ``x``, ``y``... with sign
-   matching ``x``.
--  ``abs(x)`` — a positive value with the magnitude of ``x``.
--  ``abs2(x)`` — the squared magnitude of ``x``.
--  ``sign(x)`` — indicates the sign of ``x``, returning -1, 0, or +1.
--  ``signbit(x)`` — indicates whether the sign bit is on (1) or off (0).
--  ``copysign(x,y)`` — a value with the magnitude of ``x`` and the sign
-   of ``y``.
--  ``flipsign(x,y)`` — a value with the magnitude of ``x`` and the sign
-   of ``x*y``.
+-  ``round(x)``  — Arredonda "x" para o número inteiro mais próximo.
+
+-  ``iround(x)`` — Arredonda " x" para o número inteiro mais próximo, dando um resultado digitado inteiro.
+
+-  ``floor(x)``  — Arredonda " x" em direção a "-Inf".
+
+-  ``ifloor(x)``   — Arredonda " x" em direção "-Inf", dando um resultado digitado inteiro.
+
+-  ``ceil(x)``     — Arredonda " x" em direção a "+ Inf".
+
+-  ``iceil(x)``    — Arredonda " x" em direção " + Inf", dando um resultado digitado inteiro.
+
+-  ``trunc(x)``    — Arredonda "x" para zero.
+
+-  ``itrunc(x)``   — Arredonda " x" para zero, dando um resultado digitado inteiro.
+
+-  ``div(x,y)``    — Divisão truncada; quociente arredondado para próximo de zero.
+
+-  ``fld(x,y)``    — Divisão por baixo; quociente arredondada na direção de " -Inf".
+
+-  ``rem(x,y)``    — Restante; satisfaz "x == div(x,y) * y + rem(x,y) ".
+
+-  ``mod(x,y)``    — Módulo; satisfaz "x == f(x,y) * y + mod(x,y) ".
+
+-  ``gcd(x,y...)`` — Maior divisor comum (MDC) de " x", " y" 
+
+-  ``lcm(x,y...)`` — Mínimo múltiplo comum (MMC) de " x", " y"
+
+-  ``abs(x)``      — um valor positivo com a magnitude do valor de "x".
+
+-  ``abs2(x)``     — a magnitude quadrada do valor de "x".
+
+-  ``sign(x)``     — Indica o sinal de "x", retornando -1, 0, ou 1.
+
+-  ``signbit(x)``  — indica se o sinal binário é ligado (1) ou desligado (0).
+
+-  ``copysign(x,y)`` — um valor com a magnitude de " x" e o sinal de " y".
+
+-  ``flipsign(x,y)`` — a value with the magnitude of ``x`` and the sign   of ``x*y``.
+
 -  ``sqrt(x)`` — the square root of ``x``.
+
 -  ``cbrt(x)`` — the cube root of ``x``.
--  ``hypot(x,y)`` — accurate ``sqrt(x^2 + y^2)`` for all values of ``x``
-   and ``y``.
+
+-  ``hypot(x,y)`` — accurate ``sqrt(x^2 + y^2)`` for all values of ``x``   and ``y``.
+
 -  ``exp(x)`` — the natural exponential function at ``x``.
+
 -  ``expm1(x)`` — accurate ``exp(x)-1`` for ``x`` near zero.
--  ``ldexp(x,n)`` — ``x*2^n`` computed efficiently for integer values of
-   ``n``.
+
+-  ``ldexp(x,n)`` — ``x*2^n`` computed efficiently for integer values of   ``n``.
+
 -  ``log(x)`` — the natural logarithm of ``x``.
+
 -  ``log(b,x)`` — the base ``b`` logarithm of ``x``.
+
 -  ``log2(x)`` — the base 2 logarithm of ``x``.
+
 -  ``log10(x)`` — the base 10 logarithm of ``x``.
+
 -  ``log1p(x)`` — accurate ``log(1+x)`` for ``x`` near zero.
+
 -  ``logb(x)`` — returns the binary exponent of ``x``.
+
 -  ``erf(x)`` — the `error
    function <http://en.wikipedia.org/wiki/Error_function>`_ at ``x``.
+   
 -  ``erfc(x)`` — accurate ``1-erf(x)`` for large ``x``.
+
 -  ``gamma(x)`` — the `gamma
    function <http://en.wikipedia.org/wiki/Gamma_function>`_ at ``x``.
+   
 -  ``lgamma(x)`` — accurate ``log(gamma(x))`` for large ``x``.
 
 For an overview of why functions like ``hypot``, ``expm1``, ``log1p``,
