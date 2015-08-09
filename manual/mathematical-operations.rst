@@ -32,12 +32,15 @@ são suportados para todos os tipos numéricos primitivos inteiros (https://pt.w
 Aqui estão alguns exemplos simples usando operadores aritméticos:
 
     julia> 1 + 2 + 3
+    
     6
 
     julia> 1 - 2
+    
     -1
 
     julia> 3*2/12
+    
     0.5
 
 (Por convenção, temos a tendência de menos espaço para os operadores encadeados bem menos vinculados, mas não há restrições sintáticas.)
@@ -75,12 +78,15 @@ obs: os numeros estão em decimais mas Julia trabalha com esses números na form
 Toda aritmética binária e operadores lógicos também tem uma versão de atualização que atribui o resultado da operação de volta para seu operando esquerdo. Por exemplo, a forma de atualização de " + " é o operador "+ =" . Escrever  "x + = 3" é equivalente à escrita "x = x + 3" ::
 
       julia> x = 1
+      
       1
 
       julia> x += 3
+      
       4
 
       julia> x
+      
       4
 
 As versões de atualização de todos os operadores aritméticos e de lógica binária são estas::
@@ -106,36 +112,47 @@ Aqui estão alguns exemplos simples::
 obs: true é verdadeiro e false é falso
 
     julia> 1 == 1
+    
     true
 
     julia> 1 == 2
+    
     false
 
     julia> 1 != 2
+    
     true
 
     julia> 1 == 1.0
+    
     true
 
     julia> 1 < 2
+    
     true
 
     julia> 1.0 > 3
+    
     false
 
     julia> 1 >= 1.0
+    
     true
 
     julia> -1 <= 1
+    
     true
 
     julia> -1 <= -1
+    
     true
 
     julia> -1 <= -2
+    
     false
 
     julia> 3 < -0.5
+    
     false
 
 Números Inteiros (-25,-1,2,0,35..1250,..) são comparados no modo convencional - por comparação de bits. Números de ponto flutuante são comparados de acordo com o `padrão IEEE 754 <https://pt.wikipedia.org/wiki/IEEE_754> `_:
@@ -153,20 +170,25 @@ Números Inteiros (-25,-1,2,0,35..1250,..) são comparados no modo convencional 
 O último ponto é potencialmente surpreendente e, portanto, merece nota::
 
     julia> NaN == NaN
+    
     false
 
     julia> NaN != NaN
+    
     true
 
     julia> NaN < NaN
+    
     false
 
     julia> NaN > NaN
+    
     false
 
 Para as situações em que se pretende comparar os valores de ponto flutuante para que "NaN" é igual a "NaN", como, por exemplo, as comparações de chave hash, a função "equivale" também é fornecido, o qual considera "NaN" s para ser igual a todos os outros::
 
     julia> isequal(NaN,NaN)
+    
     true
 
 Comparações do tipo mista entre inteiros definidos, inteiros sem sinal, e flutuantes(decimais) pode ser muito complicado. Foram tomadas grande cuidado para assegurar que Julia faça-os corretamente.
@@ -175,6 +197,7 @@ Comparações do tipo mista entre inteiros definidos, inteiros sem sinal, e flut
 Diferentemente da maioria das outras linguagens, com a notável exceção do Python <http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Comparison_operators> `_, comparações podem ser arbitrariamente encadeadas ::
 
     julia> 1 < 2 <= 2 < 3 == 3 > 2 >= 1 == 1 < 3 != 5
+    
     true
 
 O encadeamento de comparações muitas vezes é bastante conveniente em código numérico. As comparações numéricas em cadeia com o operador " &" , permite nos trabalhar com arrays. Por exemplo, "0 < A < 1" apresenta uma matriz booleana cujas entradas são verdadeiras onde os elementos correspondentes da "A" são entre 0 e 1.
@@ -184,6 +207,7 @@ Observe o comportamento de avaliação de comparações encadeadas ::
     v(x) = (println(x); x)
 
     julia> v(1) < v(2) <= v(3)
+    
     2
     1
     3
