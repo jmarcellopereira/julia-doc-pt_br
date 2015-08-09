@@ -11,20 +11,20 @@ Aritimétia e Operadores Lógicos Binários
 Os seguintes operadores matemáticos <https://pt.wikipedia.org/wiki/Aritm%C3%A9tica>`_
 são suportados para todos os tipos numéricos primitivos abaixo:
 
--  ``+x`` — "mais" unária é a operação de identidade.
+-  ``+x`` — ``mais`` unária é a operação de identidade.
 -  ``-x`` — Mapas unários de valores negativos aos seus inversos aditivos.
--  ``x + y`` — binário "mais" realiza adição.
--  ``x - y`` — binário "menos" realiza subtração.
--  ``x * y`` — "vezes" executa multiplicação.
--  ``x / y`` — "dividir" executa divisão.
+-  ``x + y`` — binário ``mais`` realiza adição.
+-  ``x - y`` — binário ``menos`` realiza subtração.
+-  ``x * y`` — ``vezes`` executa multiplicação.
+-  ``x / y`` — ``dividir`` executa divisão.
 
 Os seguintes operadores lógicos binários <https://pt.wikipedia.org/wiki/L%C3%B3gica_bin%C3%A1ria>`_
 são suportados para todos os tipos numéricos primitivos inteiros (https://pt.wikipedia.org/wiki/N%C3%BAmero_inteiro) abaixo:
 
--  ``~x``    — Binário lógico "não".
--  ``x & y`` — Binário "e".
--  ``x | y`` — binário "ou.
--  ``x $ y`` — binário "ou exclusivo" ou "xor".
+-  ``~x``    — Binário lógico ``não``.
+-  ``x & y`` — Binário ``e``.
+-  ``x | y`` — binário ``ou``.
+-  ``x $ y`` — binário ``ou exclusivo`` ou ``xor``.
 -  ``x >>> y`` — Deslocamento lógico <http://en.wikipedia.org/wiki/Logical_shift>`_ right.
 -  ``x >> y`` — `Deslocamento aritimético <https://pt.wikipedia.org/wiki/Deslocamento_aritm%C3%A9tico>`_ para a direita.
 -  ``x << y`` — logico/aritmético deslocamento para a esquerda.
@@ -45,7 +45,7 @@ Aqui estão alguns exemplos simples usando operadores aritméticos:
 
 (Por convenção, temos a tendência de menos espaço para os operadores encadeados bem menos vinculados, mas não há restrições sintáticas.)
 
-Julia possui um sistema de desenvolvimento que faz operações aritméticas com misturas de tipos de argumentos "apenas funcione" naturalmente e automaticamente. Ver :ref: `man-conversion-and-promotion` para obter mais detalhes do sistema de desenvolvimento
+Julia possui um sistema de desenvolvimento que faz operações aritméticas com misturas de tipos de argumentos ``apenas funcione`` naturalmente e automaticamente. Ver :ref: `man-conversion-and-promotion` para obter mais detalhes do sistema de desenvolvimento
 
 Aqui estão alguns exemplos simples usando operadores lógicos:
 obs: os numeros estão em decimais mas Julia trabalha com esses números na forma binaria, ou seja, 123 = 1111011 em binário
@@ -75,7 +75,7 @@ obs: os numeros estão em decimais mas Julia trabalha com esses números na form
     0x84
 
 
-Toda aritmética binária e operadores lógicos também tem uma versão de atualização que atribui o resultado da operação de volta para seu operando esquerdo. Por exemplo, a forma de atualização de " + " é o operador "+ =" . Escrever  "x + = 3" é equivalente à escrita "x = x + 3" ::
+Toda aritmética binária e operadores lógicos também tem uma versão de atualização que atribui o resultado da operação de volta para seu operando esquerdo. Por exemplo, a forma de atualização de `` + `` é o operador ``+ =`` . Escrever  ``x + = 3`` é equivalente à escrita ``x = x + 3`` ::
 
       julia> x = 1
       
@@ -185,7 +185,7 @@ O último ponto é potencialmente surpreendente e, portanto, merece nota::
     
     false
 
-Para as situações em que se pretende comparar os valores de ponto flutuante para que "NaN" é igual a "NaN", como, por exemplo, as comparações de chave hash, a função "equivale" também é fornecido, o qual considera "NaN" s para ser igual a todos os outros::
+Para as situações em que se pretende comparar os valores de ponto flutuante para que ``NaN`` é igual a ``NaN``, como, por exemplo, as comparações de chave hash, a função ``equivale`` também é fornecido, o qual considera ``NaN`` s para ser igual a todos os outros::
 
     julia> isequal(NaN,NaN)
     
@@ -200,7 +200,7 @@ Diferentemente da maioria das outras linguagens, com a notável exceção do Pyt
     
     true
 
-O encadeamento de comparações muitas vezes é bastante conveniente em código numérico. As comparações numéricas em cadeia com o operador " &" , permite nos trabalhar com arrays. Por exemplo, "0 < A < 1" apresenta uma matriz booleana cujas entradas são verdadeiras onde os elementos correspondentes da "A" são entre 0 e 1.
+O encadeamento de comparações muitas vezes é bastante conveniente em código numérico. As comparações numéricas em cadeia com o operador `` &`` , permite nos trabalhar com arrays. Por exemplo, ``0 < A < 1`` apresenta uma matriz booleana cujas entradas são verdadeiras onde os elementos correspondentes da ``A`` são entre 0 e 1.
 
 Observe o comportamento de avaliação de comparações encadeadas ::
 
@@ -213,50 +213,50 @@ Observe o comportamento de avaliação de comparações encadeadas ::
     3
     false
 
-O meio termo é avaliada somente uma vez, em vez de duas vezes como seria se a expressão fosse escrita como "v(1) > v(2) & v(2) <= v(3) ". No entanto, o fim das avaliações em uma comparação de encadeamento é indefinido. É altamente recomendável não utilizar expressões com efeitos posteriores (como imprimir) encadeados em comparações. Se os efeitos posteriores são necessárias, o operador " &&"  deve ser utilizado explicitamente (veja :ref:`man-short-circuit-evaluation`).
+O meio termo é avaliada somente uma vez, em vez de duas vezes como seria se a expressão fosse escrita como ``v(1) > v(2) & v(2) <= v(3) ``. No entanto, o fim das avaliações em uma comparação de encadeamento é indefinido. É altamente recomendável não utilizar expressões com efeitos posteriores (como imprimir) encadeados em comparações. Se os efeitos posteriores são necessárias, o operador `` &&``  deve ser utilizado explicitamente (veja :ref:`man-short-circuit-evaluation`).
 
 Funções Matemáticas
 ----------------------
 
 Julia oferece uma coleção abrangente de funções e operadores matemáticos.Estas operações matemáticas são definidos ao longo de uma ampla classe de valores numéricos como permitir definições bem estruturadas, incluindo inteiros, números de ponto flutuante, racionais, e complexos, onde quer que essas definições fazem sentido.
 
--  ``round(x)``  — Arredonda "x" para o número inteiro mais próximo.
+-  ``round(x)``  — Arredonda ``x`` para o número inteiro mais próximo.
 
--  ``iround(x)`` — Arredonda " x" para o número inteiro mais próximo, dando um resultado digitado inteiro.
+-  ``iround(x)`` — Arredonda `` x`` para o número inteiro mais próximo, dando um resultado digitado inteiro.
 
--  ``floor(x)``  — Arredonda " x" em direção a "-Inf".
+-  ``floor(x)``  — Arredonda `` x`` em direção a ``-Inf``.
 
--  ``ifloor(x)``   — Arredonda " x" em direção "-Inf", dando um resultado digitado inteiro.
+-  ``ifloor(x)``   — Arredonda `` x`` em direção ``-Inf``, dando um resultado digitado inteiro.
 
--  ``ceil(x)``     — Arredonda " x" em direção a "+ Inf".
+-  ``ceil(x)``     — Arredonda `` x`` em direção a ``+ Inf``.
 
--  ``iceil(x)``    — Arredonda " x" em direção " + Inf", dando um resultado digitado inteiro.
+-  ``iceil(x)``    — Arredonda `` x`` em direção `` + Inf``, dando um resultado digitado inteiro.
 
--  ``trunc(x)``    — Arredonda "x" para zero.
+-  ``trunc(x)``    — Arredonda ``x`` para zero.
 
--  ``itrunc(x)``   — Arredonda " x" para zero, dando um resultado digitado inteiro.
+-  ``itrunc(x)``   — Arredonda `` x`` para zero, dando um resultado digitado inteiro.
 
 -  ``div(x,y)``    — Divisão truncada; quociente arredondado para próximo de zero.
 
--  ``fld(x,y)``    — Divisão por baixo; quociente arredondada na direção de " -Inf".
+-  ``fld(x,y)``    — Divisão por baixo; quociente arredondada na direção de `` -Inf``.
 
--  ``rem(x,y)``    — Restante; satisfaz "x == div(x,y) * y + rem(x,y) ".
+-  ``rem(x,y)``    — Restante; satisfaz ``x == div(x,y) * y + rem(x,y) ``.
 
--  ``mod(x,y)``    — Módulo; satisfaz "x == f(x,y) * y + mod(x,y) ".
+-  ``mod(x,y)``    — Módulo; satisfaz ``x == f(x,y) * y + mod(x,y) ``.
 
--  ``gcd(x,y...)`` — Maior divisor comum (MDC) de " x", " y" 
+-  ``gcd(x,y...)`` — Maior divisor comum (MDC) de `` x``, `` y`` 
 
--  ``lcm(x,y...)`` — Mínimo múltiplo comum (MMC) de " x", " y"
+-  ``lcm(x,y...)`` — Mínimo múltiplo comum (MMC) de `` x``, `` y``
 
--  ``abs(x)``      — um valor positivo com a magnitude do valor de "x".
+-  ``abs(x)``      — um valor positivo com a magnitude do valor de ``x``.
 
--  ``abs2(x)``     — a magnitude quadrada do valor de "x".
+-  ``abs2(x)``     — a magnitude quadrada do valor de ``x``.
 
--  ``sign(x)``     — Indica o sinal de "x", retornando -1, 0, ou 1.
+-  ``sign(x)``     — Indica o sinal de ``x``, retornando -1, 0, ou 1.
 
 -  ``signbit(x)``  — indica se o sinal binário é ligado (1) ou desligado (0).
 
--  ``copysign(x,y)`` — um valor com a magnitude de " x" e o sinal de " y".
+-  ``copysign(x,y)`` — um valor com a magnitude de `` x`` e o sinal de `` y``.
 
 -  ``flipsign(x,y)`` — a value with the magnitude of ``x`` and the sign   of ``x*y``.
 
@@ -320,7 +320,7 @@ For notational convenience, the ``rem`` functions has an operator form:
 
 -  ``x % y`` is equivalent to ``rem(x,y)``.
 
-The spelled-out ``rem`` operator is the "canonical" form, while the ``%`` operator
+The spelled-out ``rem`` operator is the ``canonical`` form, while the ``%`` operator
 form is retained for compatibility with other systems. Like arithmetic and bitwise
 operators, ``%`` and ``^`` also have updating forms. As with other updating forms,
 ``x %= y`` means ``x = x % y`` and ``x ^= y`` means ``x = x^y``::
