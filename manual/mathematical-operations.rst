@@ -162,7 +162,7 @@ Números Inteiros (-25,-1,2,0,35..1250,..) são comparados no modo convencional 
 -  ``Inf`` (Infinito positivo) é igual a si mesmo e maior do que tudo o resto, exceto
    ``NaN`` (não é número)
    
--  ``-Inf``(Infinito negativo) É igual a si próprio e menos então tudo o resto exceto
+-  ``-Inf`` (Infinito negativo) É igual a si próprio e menos então tudo o resto exceto
    ``NaN`` (não é número)
    
 -  ``NaN`` não é igual, menor ou maior do que tudo, incluindo o próprio.
@@ -213,7 +213,7 @@ Observe o comportamento de avaliação de comparações encadeadas ::
     3
     false
 
-O meio termo é avaliada somente uma vez, em vez de duas vezes como seria se a expressão fosse escrita como ``v(1) > v(2) & v(2) <= v(3) ``. No entanto, o fim das avaliações em uma comparação de encadeamento é indefinido. É altamente recomendável não utilizar expressões com efeitos posteriores (como imprimir) encadeados em comparações. Se os efeitos posteriores são necessárias, o operador `` &&``  deve ser utilizado explicitamente (veja :ref:`man-short-circuit-evaluation`).
+O meio termo é avaliada somente uma vez, em vez de duas vezes como seria se a expressão fosse escrita como ``v(1) > v(2) & v(2) <= v(3)``. No entanto, o fim das avaliações em uma comparação de encadeamento é indefinido. É altamente recomendável não utilizar expressões com efeitos posteriores (como imprimir) encadeados em comparações. Se os efeitos posteriores são necessárias, o operador `` &&``  deve ser utilizado explicitamente (veja :ref:`man-short-circuit-evaluation`).
 
 Funções Matemáticas
 ----------------------
