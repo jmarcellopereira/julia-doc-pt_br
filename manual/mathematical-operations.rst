@@ -75,7 +75,7 @@ obs: os numeros estão em decimais mas Julia trabalha com esses números na form
     0x84
 
 
-Toda aritmética binária e operadores lógicos também tem uma versão de atualização que atribui o resultado da operação de volta para seu operando esquerdo. Por exemplo, a forma de atualização de `` + `` é o operador ``+ =`` . Escrever  ``x + = 3`` é equivalente à escrita ``x = x + 3`` ::
+Toda aritmética binária e operadores lógicos também tem uma versão de atualização que atribui o resultado da operação de volta para seu operando esquerdo. Por exemplo, a forma de atualização de ``+`` é o operador ``+ =`` . Escrever  ``x + = 3`` é equivalente à escrita ``x = x + 3`` ::
 
       julia> x = 1
       
@@ -160,7 +160,7 @@ Números Inteiros (-25,-1,2,0,35..1250,..) são comparados no modo convencional 
 - Números finitos são ordenados da maneira usual
 
 -  ``Inf`` (Infinito positivo) é igual a si mesmo e maior do que tudo o resto, exceto
-   ``NaN``(não é número)
+   ``NaN`` (não é número)
    
 -  ``-Inf``(Infinito negativo) É igual a si próprio e menos então tudo o resto exceto
    ``NaN`` (não é número)
@@ -200,7 +200,7 @@ Diferentemente da maioria das outras linguagens, com a notável exceção do Pyt
     
     true
 
-O encadeamento de comparações muitas vezes é bastante conveniente em código numérico. As comparações numéricas em cadeia com o operador `` &`` , permite nos trabalhar com arrays. Por exemplo, ``0 < A < 1`` apresenta uma matriz booleana cujas entradas são verdadeiras onde os elementos correspondentes da ``A`` são entre 0 e 1.
+O encadeamento de comparações muitas vezes é bastante conveniente em código numérico. As comparações numéricas em cadeia com o operador ``&`` , permite nos trabalhar com arrays. Por exemplo, ``0 < A < 1`` apresenta uma matriz booleana cujas entradas são verdadeiras onde os elementos correspondentes da ``A`` são entre 0 e 1.
 
 Observe o comportamento de avaliação de comparações encadeadas ::
 
@@ -222,31 +222,31 @@ Julia oferece uma coleção abrangente de funções e operadores matemáticos.Es
 
 -  ``round(x)``  — Arredonda ``x`` para o número inteiro mais próximo.
 
--  ``iround(x)`` — Arredonda `` x`` para o número inteiro mais próximo, dando um resultado digitado inteiro.
+-  ``iround(x)`` — Arredonda ``x`` para o número inteiro mais próximo, dando um resultado digitado inteiro.
 
--  ``floor(x)``  — Arredonda `` x`` em direção a ``-Inf``.
+-  ``floor(x)``  — Arredonda ``x`` em direção a ``-Inf``.
 
--  ``ifloor(x)``   — Arredonda `` x`` em direção ``-Inf``, dando um resultado digitado inteiro.
+-  ``ifloor(x)``   — Arredonda ``x`` em direção ``-Inf``, dando um resultado digitado inteiro.
 
--  ``ceil(x)``     — Arredonda `` x`` em direção a ``+ Inf``.
+-  ``ceil(x)``     — Arredonda ``x`` em direção a ``+ Inf``.
 
--  ``iceil(x)``    — Arredonda `` x`` em direção `` + Inf``, dando um resultado digitado inteiro.
+-  ``iceil(x)``    — Arredonda ``x`` em direção ``+ Inf``, dando um resultado digitado inteiro.
 
 -  ``trunc(x)``    — Arredonda ``x`` para zero.
 
--  ``itrunc(x)``   — Arredonda `` x`` para zero, dando um resultado digitado inteiro.
+-  ``itrunc(x)``   — Arredonda ``x`` para zero, dando um resultado digitado inteiro.
 
 -  ``div(x,y)``    — Divisão truncada; quociente arredondado para próximo de zero.
 
--  ``fld(x,y)``    — Divisão por baixo; quociente arredondada na direção de `` -Inf``.
+-  ``fld(x,y)``    — Divisão por baixo; quociente arredondada na direção de ``-Inf``.
 
--  ``rem(x,y)``    — Restante; satisfaz ``x == div(x,y) * y + rem(x,y) ``.
+-  ``rem(x,y)``    — Restante; satisfaz ``x == div(x,y) * y + rem(x,y)``.
 
--  ``mod(x,y)``    — Módulo; satisfaz ``x == f(x,y) * y + mod(x,y) ``.
+-  ``mod(x,y)``    — Módulo; satisfaz ``x == f(x,y) * y + mod(x,y)``.
 
--  ``gcd(x,y...)`` — Maior divisor comum (MDC) de `` x``, `` y`` 
+-  ``gcd(x,y...)`` — Maior divisor comum (MDC) de ``x``, ``y`` 
 
--  ``lcm(x,y...)`` — Mínimo múltiplo comum (MMC) de `` x``, `` y``
+-  ``lcm(x,y...)`` — Mínimo múltiplo comum (MMC) de ``x``, ``y``
 
 -  ``abs(x)``      — um valor positivo com a magnitude do valor de ``x``.
 
@@ -256,7 +256,7 @@ Julia oferece uma coleção abrangente de funções e operadores matemáticos.Es
 
 -  ``signbit(x)``  — indica se o sinal binário é ligado (1) ou desligado (0).
 
--  ``copysign(x,y)`` — um valor com a magnitude de `` x`` e o sinal de `` y``.
+-  ``copysign(x,y)`` — um valor com a magnitude de ``x`` e o sinal de ``y``.
 
 -  ``flipsign(x,y)`` — a value with the magnitude of ``x`` and the sign   of ``x*y``.
 
