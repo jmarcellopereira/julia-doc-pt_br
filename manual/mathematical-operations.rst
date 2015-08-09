@@ -47,22 +47,28 @@ Julia possui um sistema de desenvolvimento que faz operações aritméticas com 
 Aqui estão alguns exemplos simples usando operadores lógicos:
 obs: os numeros estão em decimais mas Julia trabalha com esses números na forma binaria, ou seja, 123 = 1111011 em binário
 
-    julia> ~123 
+    julia> ~123
+    
     -124
 
     julia> 123 & 234
+    
     106
 
     julia> 123 | 234
+    
     251
 
     julia> 123 $ 234
+    
     145
 
     julia> ~uint32(123)
+    
     0xffffff84
 
     julia> ~uint8(123)
+    
     0x84
 
 
