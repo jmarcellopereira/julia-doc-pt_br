@@ -260,70 +260,62 @@ Julia oferece uma coleção abrangente de funções e operadores matemáticos.Es
 
 -  ``flipsign(x,y)`` — a value with the magnitude of ``x`` and the sign   of ``x*y``.
 
--  ``sqrt(x)`` — the square root of ``x``.
+-  ``sqrt(x)`` — a raiz quadadra de ``x``.
 
--  ``cbrt(x)`` — the cube root of ``x``.
+-  ``cbrt(x)`` — a raiz cúbica de ``x``.
 
--  ``hypot(x,y)`` — accurate ``sqrt(x^2 + y^2)`` for all values of ``x``   and ``y``.
+-  ``hypot(x,y)`` — valor preciso de ``sqrt(x^2 + y^2)`` para todos os valores de ``x``   and ``y``.
 
--  ``exp(x)`` — the natural exponential function at ``x``.
+-  ``exp(x)`` — a função exponencial natural ("e") de ``x``.
 
--  ``expm1(x)`` — accurate ``exp(x)-1`` for ``x`` near zero.
+-  ``expm1(x)`` — valor preciso ``exp(x)-1`` para ``x`` próximo de zero.
 
--  ``ldexp(x,n)`` — ``x*2^n`` computed efficiently for integer values of   ``n``.
+-  ``ldexp(x,n)`` — ``x*2^n`` calculado de forma eficiente para valores inteiros de `` n``.
 
--  ``log(x)`` — the natural logarithm of ``x``.
+-  ``log(x)`` — logarímio natural de ``x``.
 
--  ``log(b,x)`` — the base ``b`` logarithm of ``x``.
+-  ``log(b,x)`` — a base ``b`` do logaritimo of ``x``.
 
--  ``log2(x)`` — the base 2 logarithm of ``x``.
+-  ``log2(x)`` — a base 2 do logaritimo of ``x``.
 
--  ``log10(x)`` — the base 10 logarithm of ``x``.
+-  ``log10(x)`` — a base 10 logarithm of ``x``.
 
--  ``log1p(x)`` — accurate ``log(1+x)`` for ``x`` near zero.
+-  ``log1p(x)`` — valor preciso de ``log(1+x)`` for ``x`` próximo de zero.
 
--  ``logb(x)`` — returns the binary exponent of ``x``.
+-  ``logb(x)`` — retorna o expotente binário de ``x``.
 
--  ``erf(x)`` — the `error
-   function <http://en.wikipedia.org/wiki/Error_function>`_ at ``x``.
+-  ``erf(x)`` — `função erro
+    <https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_erro>`_ de ``x``.
    
--  ``erfc(x)`` — accurate ``1-erf(x)`` for large ``x``.
+-  ``erfc(x)`` — valor preciso de ``1-erf(x)`` para x muito grande ``x``.
 
--  ``gamma(x)`` — the `gamma
-   function <http://en.wikipedia.org/wiki/Gamma_function>`_ at ``x``.
+-  ``gamma(x)`` — a `função gamma
+    <https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_gama>`_ de ``x``.
    
--  ``lgamma(x)`` — accurate ``log(gamma(x))`` for large ``x``.
+-  ``lgamma(x)`` — valor precidso de ``log(gamma(x))`` para x muito grande ``x``.
 
-For an overview of why functions like ``hypot``, ``expm1``, ``log1p``,
-and ``erfc`` are necessary and useful, see John D. Cook's excellent pair
-of blog posts on the subject: `expm1, log1p,
-erfc <http://www.johndcook.com/blog/2010/06/07/math-library-functions-that-seem-unnecessary/>`_,
-and
-`hypot <http://www.johndcook.com/blog/2010/06/02/whats-so-hard-about-finding-a-hypotenuse/>`_.
+Para uma visão geral de como funciona as funções `` hypot``, `` expm1``, `` log1p``,e `` erfc`` e como são necessárias e úteis, consulte excelente referencia de John D. Cook de posts sobre o assunto: `expm1, log1p,
+erfc <http://www.johndcook.com/blog/2010/06/07/math-library-functions-that-seem-unnecessary/> `_,
+e `hypot <http://www.johndcook.com/blog/2010/06/02/whats-so-hard-about-finding-a-hypotenuse/>`_.
 
-All the standard trigonometric functions are also defined::
+Todas as funções padrão da trigonométricas também são definidos como::
 
     sin    cos    tan    cot    sec    csc
     sinh   cosh   tanh   coth   sech   csch
     asin   acos   atan   acot   asec   acsc
     acoth  asech  acsch  sinc   cosc   atan2
 
-These are all single-argument functions, with the exception of
-`atan2 <http://en.wikipedia.org/wiki/Atan2>`_, which gives the angle
-in `radians <http://en.wikipedia.org/wiki/Radian>`_ between the *x*-axis
-and the point specified by its arguments, interpreted as *x* and *y*
-coordinates. In order to compute trigonometric functions with degrees
-instead of radians, suffix the function with ``d``. For example, ``sind(x)``
-computes the sine of ``x`` where ``x`` is specified in degrees.
-
+Trata-se de todas as funções de argumento único, com a excepção de
+`atan2 <http://en.wikipedia.org/wiki/Atan2>` _, o que retorna o ângulo
+em `radianos <http://en.wikipedia.org/wiki/Radian>` _ entre o valor de * x * - axis
+e o ponto especificado pelos seus argumentos, interpretados como coordenas os valores de * x * e * y *
+. Para calcular funções trigonométricas com graus em vez de radianos, sufixando a função com a letra `` d``. Por exemplo, `` sind (x) `` calcula o seno de `` x`` onde `` x`` é especificado em graus.
 For notational convenience, the ``rem`` functions has an operator form:
 
--  ``x % y`` is equivalent to ``rem(x,y)``.
+-  ``x % y`` é equivalente ao ``rem(x,y)``.
 
-The spelled-out ``rem`` operator is the ``canonical`` form, while the ``%`` operator
-form is retained for compatibility with other systems. Like arithmetic and bitwise
-operators, ``%`` and ``^`` also have updating forms. As with other updating forms,
-``x %= y`` means ``x = x % y`` and ``x ^= y`` means ``x = x^y``::
+A abreviatura "rem" do operador é a forma canonica, enquanto a formao do operador " %" é mantida para fins de compatibilidade com outros sistemas. Como aritmética e operadores lógicos binários, " %" e " ^" também são formas atuais. Como outros formas atuais, "x %= y" significa "x = x % y" e "x ^= y" significa "x = x^y"::
+
 
     julia> x = 2; x ^= 5; x
     32
