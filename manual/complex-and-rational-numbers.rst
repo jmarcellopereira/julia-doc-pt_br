@@ -4,32 +4,21 @@
  Complex and Rational Numbers  
 ******************************
 
-Julia ships with predefined types representing both complex and rational
-numbers, and supports all the mathematical operations discussed in
-:ref:`man-mathematical-operations` on them.
-Promotions are defined so that operations on any combination of
-predefined numeric types, whether primitive or composite, behave as
-expected.
+Julia é estruturado com tipos predefinidos que representa ambos os números complexos e os números racionais, e suporta todas as operações matemáticas discutido no :ref:`man-mathematical-operations` sobre eles. Os desevolvimentos são definidos de modo que as operações em qualquer combinação de tipos numéricos predefinidos, primitivas ou composto, se comportam como esperado.
+
 
 .. _man-complex-numbers:
 
-Complex Numbers
+Números Complexos
 ---------------
 
-The global constant ``im`` is bound to the complex number *i*,
-representing one of the square roots of -1. It was deemed harmful to
-co-opt the name ``i`` for a global constant, since it is such a popular
-index variable name. Since Julia allows numeric literals to be
-:ref:`juxtaposed with identifiers as
-coefficients <man-numeric-literal-coefficients>`,
-this binding suffices to provide convenient syntax for complex numbers,
-similar to the traditional mathematical notation::
+A constante global  ``im`` está vinculada ao complexo conjunto *i* , que representa uma das raízes quadradas de -1. Ela foi considerada prejudicial por a co-optar o nome "i" como constante global , uma vez que, nome de variável é um índice popular. Uma vez que Julia permite literais numéricos para ser :ref:`juxtaposed with identifiers as coefficients <man-numeric-literal-coefficients>`, esta ligação é suficiente para permitir uma fácil sintaxe de Notação matemática de números complexos, semelhante ao tradicional. :
 
     julia> 1 + 2im
     1 + 2im
 
-You can perform all the standard arithmetic operations with complex
-numbers::
+
+Você pode executar todas as operações padrão aritméticas com números complexo na forma::
 
     julia> (1 + 2im)*(2 - 3im)
     8 + 1im
@@ -61,8 +50,7 @@ numbers::
     julia> 3(2 - 5im)^-1.0
     0.20689655172413793 + 0.5172413793103449im
 
-The promotion mechanism ensures that combinations of operands of
-different types just work::
+A mecanismo de execução  garante que a combinação de operandos de tipos diferentes apenas funcione::
 
     julia> 2(1 - 1im)
     2 - 2im
@@ -91,10 +79,9 @@ different types just work::
     julia> 1 + 3/4im
     1.0 - 0.75im
 
-Note that ``3/4im == 3/(4*im) == -(3/4*im)``, since a literal
-coefficient binds more tightly than division.
+Observe que ``3/4im == 3/(4*im) == -(3/4*im)``, Uma vez que o coeficiente literal une mais intimamente a divisão.
 
-Standard functions to manipulate complex values are provided::
+Funções padrão forncedias para manipular valores complexos::
 
     julia> real(1 + 2im)
     1
@@ -111,11 +98,7 @@ Standard functions to manipulate complex values are provided::
     julia> abs2(1 + 2im)
     5
 
-As is common, the absolute value of a complex number is its distance
-from zero. The ``abs2`` function gives the square of the absolute value,
-and is of particular use for complex numbers, where it avoids taking a
-square root. The full gamut of other mathematical functions are also
-defined for complex numbers::
+Como é comum, o valor absoluto de um número complexo é sua distância do zero. A função "abs2" retorna ao quadrado o valor absoluto, e é de uso particular de números complexos, onde se evita ter uma raiz quadrada. Toda uma gama de outras funções matemáticas são também definidas por números complexos:
 
     julia> sqrt(im)
     0.7071067811865476 + 0.7071067811865475im
@@ -132,10 +115,9 @@ defined for complex numbers::
     julia> sinh(1 + 2im)
     -0.48905625904129374 + 1.4031192506220407im
 
-Note that mathematical functions typically return real values when applied
-to real numbers and complex values when applied to complex numbers.
-For example, ``sqrt``, for example, behaves differently when applied to ``-1``
-versus ``-1 + 0im`` even though ``-1 == -1 + 0im``::
+Note que funções matemáticas tipicas retornam valores reais quando aplicado aos números reais e valores complexos  quando aplicado aos números complexos.
+Por exemplo, `` sqrt``, por exemplo, se comporta de modo diferente quando aplicado a `` -1``
+contra `` -1 + 0im`` mesmo que `` -1 == -1 + 0im`` ::
 
     julia> sqrt(-1)
     ERROR: DomainError()
@@ -144,25 +126,17 @@ versus ``-1 + 0im`` even though ``-1 == -1 + 0im``::
     julia> sqrt(-1 + 0im)
     0.0 + 1.0im
 
-If you need to construct a complex number using variables, the literal
-numeric coefficient notation will not work, although explicitly writing
-the multiplication operation will::
+Se você precisa para construir um número complexo usando variáveis,a notação numérica do coeficiente literal não vai funcionar, embora escrito explicitamente, a operação de multiplicação será ::
 
     julia> a = 1; b = 2; a + b*im
     1 + 2im
 
-Constructing complex numbers from variable values like this, however,
-is not recommended. Use the ``complex`` function to construct a
-complex value directly from its real and imaginary parts instead. This
-construction is preferred for variable arguments because it is more
-efficient than the multiplication and addition construct, but also
-because certain values of ``b`` can yield unexpected results::
+Construir números complexos de valores de variáveis como este acima, no entanto, não é recomendado. Use a função ``complex``  para construir um complexo diretamente a partir do seu valor real e imaginário compondo as peças no lugar. Essa construção é a melhor escolha para o argumentos de uma variável  porque é mais eficiente do que a construir de multiplicação e adição , mas também porque alguns dos valores da ``b`` pode produzir resultados inesperados:
 
     julia> complex(a,b)
     1 + 2im
 
-``Inf`` and ``NaN`` propagate through complex numbers in the real
-and imaginary parts of a complex number as per IEEE-754 arithmetic::
+``Inf`` e ``NaN`` são utilizados, nas partes real e o imaginário de um número complexo conforme aritmética do IEEE-754 :
 
     julia> 1 + Inf*im
     complex(1.0,Inf)
@@ -176,14 +150,12 @@ and imaginary parts of a complex number as per IEEE-754 arithmetic::
 Rational Numbers
 ----------------
 
-Julia has a rational number type to represent exact ratios of integers.
-Rationals are constructed using the ``//`` operator::
+Julia tem um tipo de número racional para representar proporções exatas de números inteiros. Racionais são construídas utilizando a // `` operador `` ::
 
     julia> 2//3
     2//3
 
-If the numerator and denominator of a rational have common factors, they
-are reduced to lowest terms such that the denominator is non-negative::
+Se o numerador eo denominador de uma racional têm fatores comuns, eles são reduzidos a termos mais baixos de tal forma que o denominador é não negativo ::
 
     julia> 6//9
     2//3
@@ -197,10 +169,7 @@ are reduced to lowest terms such that the denominator is non-negative::
     julia> -4//-12
     1//3
 
-This normalized form for a ratio of integers is unique, so equality of
-rational values can be tested by checking for equality of the numerator
-and denominator. The standardized numerator and denominator of a
-rational value can be extracted using the ``num`` and ``den`` functions::
+Esta forma normalizada para uma relação de números inteiros é único, por isso a igualdade racional de valores podem ser testados, verificando a igualdade do numerador e denominador. O numerador e denominador racional padronizado  de um valor pode ser extraído usando o "num lock" e "den" funções: :
 
     julia> num(2//3)
     2
